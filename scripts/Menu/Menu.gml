@@ -68,7 +68,7 @@ function VolumeUp()
         music_volume += 0.1;
         audio_sound_gain(BgMusic, music_volume, 0);
 		
-		ChangeOMenuAddtiveDescription("Volume Atual: " + string(music_volume * 100) + "%");
+		ChangeOMenuAddtiveDescription("Volume Atual: " + string_format(music_volume * 100,0,0) + "%");
     }
 	
 	SaveConfig()
@@ -80,7 +80,7 @@ function VolumeDown()
 	if (music_volume > 0.0) {
         music_volume -= 0.1;
         audio_sound_gain(BgMusic, music_volume, 0);
-		ChangeOMenuAddtiveDescription("Volume Atual: " + string(music_volume * 100)+ "%")
+		ChangeOMenuAddtiveDescription("Volume Atual: " + string_format(music_volume * 100,0,0)+ "%")
     }
 	
 	SaveConfig()

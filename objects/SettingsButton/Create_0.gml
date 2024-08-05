@@ -14,6 +14,6 @@ function ExecuteButtonFunction()
 			["Tela Cheia",  ToggleFullscream],
 			["Fechar",  -1]
 		]
-		, "Config", display_get_width()/4, display_get_height()/4, "Volume Atual: " + string(audio_sound_get_gain(BgMusic)*100)+ "%")
+		, "Config", display_get_width()/4, display_get_height()/4, "Volume Atual: " + string_format(audio_sound_get_gain(BgMusic)*100,0,0)+ "%")
 	}
 }
