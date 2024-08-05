@@ -1,6 +1,6 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function Menu(_x, _y, _options, _description = -1)
+function Menu(_x, _y, _options, _description = -1, extraWidth = 0, extraHeight = 0)
 {
 	with(instance_create_depth(_x, _y, -999, oMenu)){
 		options = _options
@@ -26,9 +26,30 @@ function Menu(_x, _y, _options, _description = -1)
 		heightLine = 70;
 		height = heightLine * (optionsCount + !(description == -1));
 		
-		widthFull = width + margin * 2;
-		heightFull = height + margin * 2;
+		widthFull = width + margin * 2 + extraWidth;
+		heightFull = height + margin * 2 + extraHeight;
 	}
+}
+
+function SaveConfig()
+{
+	ini_open("config.ini");
+	
+	ini_write_real("Config", "Volume", audio_sound_get_gain(BgMusic));
+	ini_write_real("Config", "Fullscreen", window_get_fullscreen());
+	
+	ini_close();
+	
+}
+
+function LoadConfig()
+{
+	ini_open("config.ini")
+	
+	audio_sound_gain(BgMusic, ini_read_real("Config", "Volume", audio_sound_get_gain(BgMusic)), 0);
+	window_set_fullscreen(ini_read_real("Config", "Fullscreen", window_get_fullscreen()));
+	
+	ini_close();
 }
 
 
@@ -40,6 +61,8 @@ function VolumeUp()
         music_volume += 0.1;
         audio_sound_gain(BgMusic, music_volume, 0);
     }
+	
+	SaveConfig()
 }
 
 function VolumeDown()
@@ -49,6 +72,8 @@ function VolumeDown()
         music_volume -= 0.1;
         audio_sound_gain(BgMusic, music_volume, 0);
     }
+	
+	SaveConfig()
 }
 
 function ToggleFullscream()
@@ -57,17 +82,19 @@ function ToggleFullscream()
 	var is_fullscreen = window_get_fullscreen();
 
 	window_set_fullscreen(!is_fullscreen);
+	
+	SaveConfig()
 }
 
 function SetSelectedIndex(index)
 {
-	var navegationManager = instance_find(MenuNavegationManager, 0)
+	var navegationManager = instance_find(MenuManager, 0)
 	navegationManager.selectedIndex = index
 }
 
 function IncrementSelectedIndex()
 {
-	var navegationManager = instance_find(MenuNavegationManager, 0)
+	var navegationManager = instance_find(MenuManager, 0)
 	
 	navegationManager.selectedIndex = navegationManager.selectedIndex + 1;
 	
@@ -79,7 +106,7 @@ function IncrementSelectedIndex()
 
 function DecrementSelectedIndex()
 {
-	var navegationManager = instance_find(MenuNavegationManager, 0)
+	var navegationManager = instance_find(MenuManager, 0)
 	
 	navegationManager.selectedIndex = navegationManager.selectedIndex - 1;
 	

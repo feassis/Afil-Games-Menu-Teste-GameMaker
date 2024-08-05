@@ -37,7 +37,7 @@
     {"id":{"name":"fnt_menu","path":"fonts/fnt_menu/fnt_menu.yy",},},
     {"id":{"name":"ButtonParent","path":"objects/ButtonParent/ButtonParent.yy",},},
     {"id":{"name":"ClosePopup","path":"objects/ClosePopup/ClosePopup.yy",},},
-    {"id":{"name":"MenuNavegationManager","path":"objects/MenuNavegationManager/MenuNavegationManager.yy",},},
+    {"id":{"name":"MenuManager","path":"objects/MenuManager/MenuManager.yy",},},
     {"id":{"name":"MusicManager","path":"objects/MusicManager/MusicManager.yy",},},
     {"id":{"name":"oMenu","path":"objects/oMenu/oMenu.yy",},},
     {"id":{"name":"PlayButton","path":"objects/PlayButton/PlayButton.yy",},},

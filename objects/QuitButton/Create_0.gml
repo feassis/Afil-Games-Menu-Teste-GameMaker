@@ -9,9 +9,10 @@ function ExecuteButtonFunction()
 		mouse_x,
 		mouse_y,
 		[
-			["Sim",  game_end],
-			["Nao",  -1]
+			["Nao",  -1],
+			["Sim",  game_end]
+			
 		]
-		, "Você deseja sair do jogo?")
+		, "Voce deseja sair do jogo?")
 	}
 }

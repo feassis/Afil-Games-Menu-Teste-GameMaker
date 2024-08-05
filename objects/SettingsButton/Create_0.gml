@@ -6,14 +6,14 @@ function ExecuteButtonFunction()
 
 	if(!inst){
 		Menu(
-		mouse_x,
-		mouse_y,
+		display_get_width()/8,
+		display_get_height()/8,
 		[
 			["Volume +",  VolumeUp],
 			["Volume -",  VolumeDown],
 			["Tela Cheia",  ToggleFullscream],
 			["Fechar",  -1]
 		]
-		, "Config")
+		, "Config", display_get_width()/4, display_get_height()/4)
 	}
 }

@@ -23,7 +23,7 @@ draw_set_valign(fa_middle);
 /// @DnDHash : 6ED77F88
 /// @DnDArgument : "code" "/// @description Execute Code$(13_10)var navegation = instance_find(MenuNavegationManager, 0)$(13_10)$(13_10)///show_debug_message("**** button order = " + string(buttom_order))$(13_10)///show_debug_message("**** navegation index = " + string(navegation.selectedIndex))$(13_10)$(13_10)$(13_10)if(navegation != noone && buttom_order == navegation.selectedIndex)$(13_10){$(13_10)	draw_set_color(c_yellow)$(13_10)}$(13_10)else$(13_10){$(13_10)	draw_set_color(c_white)$(13_10)}"
 /// @description Execute Code
-var navegation = instance_find(MenuNavegationManager, 0)
+var navegation = instance_find(MenuManager, 0)
 
 ///show_debug_message("**** button order = " + string(buttom_order))
 ///show_debug_message("**** navegation index = " + string(navegation.selectedIndex))

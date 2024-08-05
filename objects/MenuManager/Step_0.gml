@@ -23,3 +23,5 @@ if(oMenuInst == noone)
 }
 
 
+LoadConfig()
+
