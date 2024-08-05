@@ -1,12 +1,13 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function Menu(_x, _y, _options, _description = -1, extraWidth = 0, extraHeight = 0)
+function Menu(_x, _y, _options, _description = -1, extraWidth = 0, extraHeight = 0, _addtiveDescription = "")
 {
 	with(instance_create_depth(_x, _y, -999, oMenu)){
 		options = _options
 		description = _description
 		optionsCount = array_length(_options)
 		hoverMarker = "* ";
+		addtiveDescription = _addtiveDescription
 		
 		margin = 8
 		
@@ -52,6 +53,12 @@ function LoadConfig()
 	ini_close();
 }
 
+function ChangeOMenuAddtiveDescription(addtive)
+{
+	var oMenuInst = instance_find(oMenu, 0)
+	
+	oMenu.addtiveDescription = addtive
+}
 
 function VolumeUp() 
 {
@@ -60,6 +67,8 @@ function VolumeUp()
 		
         music_volume += 0.1;
         audio_sound_gain(BgMusic, music_volume, 0);
+		
+		ChangeOMenuAddtiveDescription("Volume Atual: " + string(music_volume * 100) + "%");
     }
 	
 	SaveConfig()
@@ -71,6 +80,7 @@ function VolumeDown()
 	if (music_volume > 0.0) {
         music_volume -= 0.1;
         audio_sound_gain(BgMusic, music_volume, 0);
+		ChangeOMenuAddtiveDescription("Volume Atual: " + string(music_volume * 100)+ "%")
     }
 	
 	SaveConfig()

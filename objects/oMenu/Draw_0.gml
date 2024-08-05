@@ -24,7 +24,7 @@ for(l = 0; l < (optionsCount + inc); l++)
 	
 	if(l == 0) && (_desc)
 	{
-		draw_text(x, y, description)
+		draw_text(x, y, description + " | " + addtiveDescription)
 	}
 	else
 	{
