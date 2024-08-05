@@ -39,7 +39,6 @@ function VolumeUp()
 		
         music_volume += 0.1;
         audio_sound_gain(BgMusic, music_volume, 0);
-        show_debug_message("Volume aumentado para: " + string(music_volume));
     }
 }
 
@@ -49,7 +48,6 @@ function VolumeDown()
 	if (music_volume > 0.0) {
         music_volume -= 0.1;
         audio_sound_gain(BgMusic, music_volume, 0);
-        show_debug_message("Volume diminuído para: " + string(music_volume));
     }
 }
 
@@ -59,4 +57,34 @@ function ToggleFullscream()
 	var is_fullscreen = window_get_fullscreen();
 
 	window_set_fullscreen(!is_fullscreen);
+}
+
+function SetSelectedIndex(index)
+{
+	var navegationManager = instance_find(MenuNavegationManager, 0)
+	navegationManager.selectedIndex = index
+}
+
+function IncrementSelectedIndex()
+{
+	var navegationManager = instance_find(MenuNavegationManager, 0)
+	
+	navegationManager.selectedIndex = navegationManager.selectedIndex + 1;
+	
+	if(navegationManager.selectedIndex > navegationManager.indexCap)
+	{
+		navegationManager.selectedIndex = 0;
+	}
+}
+
+function DecrementSelectedIndex()
+{
+	var navegationManager = instance_find(MenuNavegationManager, 0)
+	
+	navegationManager.selectedIndex = navegationManager.selectedIndex - 1;
+	
+	if(navegationManager.selectedIndex < 0)
+	{
+		navegationManager.selectedIndex = navegationManager.indexCap;
+	}
 }

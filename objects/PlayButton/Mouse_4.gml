@@ -3,9 +3,9 @@
 /// @DnDHash : 27623CE5
 event_inherited();
 
-/// @DnDAction : YoYo Games.Rooms.Go_To_Room
+/// @DnDAction : YoYo Games.Common.Execute_Code
 /// @DnDVersion : 1
-/// @DnDHash : 63835AFB
-/// @DnDArgument : "room" "rm_gameplay"
-/// @DnDSaveInfo : "room" "rm_gameplay"
-room_goto(rm_gameplay);
+/// @DnDHash : 14099CD1
+/// @DnDArgument : "code" "/// @description Execute Code$(13_10)ExecuteButtonFunction()"
+/// @description Execute Code
+ExecuteButtonFunction()
